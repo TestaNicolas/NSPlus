@@ -13,7 +13,10 @@ function exportProject() {
 	var obj = project.getForExport(true, updateDiagram);
 	var element = document.createElement('a');
 	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(obj)));
-	element.setAttribute('download', project.fullname + ".nsplus");
+	console.log(project.fullname)
+	// element.setAttribute('download', project.fullname + ".nsplus");
+	const filename = project.fullname === "Proyecto sin título" ? "Test.nsplus" : project.fullname + ".nsplus"; 
+	element.setAttribute('download', filename);
 	element.style.display = 'none';
 	document.body.appendChild(element);
 	element.click();
